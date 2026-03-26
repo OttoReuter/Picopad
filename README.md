@@ -4,7 +4,7 @@ Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko
 
 ![picopad_01](https://github.com/user-attachments/assets/24d1a4e2-037f-4912-931a-9e49ecea4a3e)
 
-Hier gebe ich die Pinbelegung von Pajenicko an:
+Hier gebe ich die Pinbelegung für das Picopad von Pajenicko an:
 
 ## Display:  
 LCD_CS:  <b>GP21</b>,  LCD_RST: <b>GP20</b>,  LCD_MOSI: <b>GP19</b>,  LCD_SCK:  <b>GP18</b>,  LCD_DC:  <b>GP17</b>,  LCD_BL:  <b>GP16</b>,
@@ -18,3 +18,4 @@ UP:  <b>GP4</b>,  DOWN:  <b>GP5</b>,  LEFT:  <b>GP3</b>,  RIGHT:  <b>GP2</b>,  X
 ## SD-Kartenslot:
 SD_SPI1_SCK:  <b>GP10</b>,  SD_SPI1_MOSI: <b>GP11</b>,  SD_SPI1_MISO  <b>GP12</b>,   SD_SPI1_CS  <b>GP13</b>,
 
+Damit können Sie das Picopad unabhängig von der mitgelieferten SDK in der Arduino-IDE oder CircuitPython bzw. MicroPython, je nach Ihrer Vorliebe programmieren.
