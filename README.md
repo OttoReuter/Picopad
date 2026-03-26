@@ -6,7 +6,9 @@ Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko
 
 Hier gebe ich die Pinbelegung von Pajenicko an:
 
-##Display:  
-LCD_CS   GP 21,  LCD_RST  GP 20,  LCD_MOSI GP 19,  LCD_SCK  GP 18,  LCD_DC   GP 17,  LCD_BL   GP 16,
+## Display:  
+LCD_CS   GP21,  LCD_RST  GP20,  LCD_MOSI GP19,  LCD_SCK  GP18,  LCD_DC   GP17,  LCD_BL   GP16,
 
-          
+## Tasten:
+UP  GP4,  DOWN  GP5,  LEFT  GP3,  RIGHT  GP2,  X  GP9,  Y  GP8,  A  GP7,  B  GP6,
+
