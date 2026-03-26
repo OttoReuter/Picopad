@@ -1,6 +1,6 @@
 # Picopad
 
-Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko (https://github.com/Pajenicko/Picopad). Ich habe den Bausatz bestellt und den RP2040 gegen einen RP2350-Plus von Waveshare ausgetauscht, da ich den Microcontroller von Pico 2 einsetzen wollte und den USB-C Anschluss bei dem o.g. Gerät bevorzuge. Wenn man nicht die vom Entwickler bereitgestellte SDK verwendet, kann man aus dem Datenblatt die Pinbelegung entnehmen, welche von anderen Herstellern leicht abweicht. Das ist aber kein Problem, denn die Anschlüsse der unterschiedlichen Pico-Modelle sind ja kompatitel.
+Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko (https://github.com/Pajenicko/Picopad). Ich habe für mich einen Bausatz (umgerechnet rund 38 Euro) bestellt. Die Lieferung erfolgte schnell. Alles war gut sortiert verpackt und vollständig. Für die Lötarbeit gibt es von Pajenicko eine Montageanleitung im Netz mit Video. Dort werden alle Schritte übersichtlich gezeigt. Ich habe den mitgelieferten RP2040 Pico W gegen einen RP2350-Plus von Waveshare ausgetauscht, da ich den Microcontroller von Pico 2 einsetzen wollte und den USB-C Anschluss bei dem o.g. Gerät bevorzuge. Wenn man nicht die vom Entwickler bereitgestellte SDK verwendet, kann man aus dem Datenblatt die Pinbelegung entnehmen, welche von anderen Herstellern leicht abweicht. Das ist aber kein Problem, denn die Anschlüsse der unterschiedlichen Pico-Modelle sind ja kompatitel.
 
 ![picopad_01](https://github.com/user-attachments/assets/24d1a4e2-037f-4912-931a-9e49ecea4a3e)
 
@@ -20,6 +20,6 @@ SD_SPI1_SCK:  <b>GP10</b>,  SD_SPI1_MOSI: <b>GP11</b>,  SD_SPI1_MISO  <b>GP12</b
 
 Die Belegung des externen Anschlusses für die Nutzung von Sensoren gibt Pajenicko auf seiner Seite (siehe oben) an.
 ## Externer Anschluss:
-<b>GP0, GP1, GP14, GP26, GP27, GP28, ADC_VREF, 3V3, VBAT und GND</b> 
+<b>GP0, GP1, GP14, GP26, GP27, GP28, ADC_VREF, 3V3, VBAT</b> und <b>GND. </b> 
 
-Damit können Sie das Picopad unabhängig von der mitgelieferten SDK in der Arduino-IDE oder CircuitPython bzw. MicroPython, je nach Ihrer Vorliebe programmieren.
+Damit können Sie das Picopad unabhängig von der mitgelieferten SDK in der Arduino-IDE oder CircuitPython bzw. MicroPython, je nach Ihrer Vorliebe programmieren. Entsprechende Beispiele werde ich hier auf Github veröffentlichen.
