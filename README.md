@@ -7,11 +7,6 @@ Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko
 Hier gebe ich die Pinbelegung von Pajenicko an:
 
 Display:  
-          LCD_CS   GP 21,
-          LCD_RST  GP 20,
-          LCD_MOSI GP 19,
-          LCD_SCK  GP 18,
-          LCD_DC   GP 17,
-          LCD_BL   GP 16,
+          LCD_CS   GP 21, LCD_RST  GP 20, LCD_MOSI GP 19, LCD_SCK  GP 18, LCD_DC   GP 17, LCD_BL   GP 16,
 
           
