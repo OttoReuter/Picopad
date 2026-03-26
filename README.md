@@ -12,3 +12,9 @@ LCD_CS:  GP21,  LCD_RST: GP20,  LCD_MOSI: GP19,  LCD_SCK:  GP18,  LCD_DC:  GP17,
 ## Tasten:
 UP:  GP4,  DOWN:  GP5,  LEFT:  GP3,  RIGHT:  GP2,  X:  GP9,  Y:  GP8,  A:  GP7,  B:  GP6,
 
+## Sound:
+GP15,
+
+## SD-Kartenslot:
+SD_SPI1_SCK:  GP10,  SD_SPI1_MOSI: GP11,  SD_SPI1_MISO  GP12,   SD_SPI1_CS  GP 13,
+
