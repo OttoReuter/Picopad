@@ -7,14 +7,14 @@ Es geht hier um Projekte mit dem Picopad des tschechischen Entwicklers Pajenicko
 Hier gebe ich die Pinbelegung von Pajenicko an:
 
 ## Display:  
-LCD_CS:  <b>GP21</b>,  LCD_RST: GP20,  LCD_MOSI: GP19,  LCD_SCK:  GP18,  LCD_DC:  GP17,  LCD_BL:  GP16,
+LCD_CS:  <b>GP21</b>,  LCD_RST: <b>GP20</b>,  LCD_MOSI: <b>GP19</b>,  LCD_SCK:  <b>GP18</b>,  LCD_DC:  <b>GP17</b>,  LCD_BL:  <b>GP16</b>,
 
 ## Tasten:
-UP:  GP4,  DOWN:  GP5,  LEFT:  GP3,  RIGHT:  GP2,  X:  GP9,  Y:  GP8,  A:  GP7,  B:  GP6,
+UP:  <b>GP4</b>,  DOWN:  <b>GP5</b>,  LEFT:  <b>GP3</b>,  RIGHT:  <b>GP2</b>,  X:  <b>GP9</b>,  Y:  <b>GP8</b>,  A:  <b>GP7</b>,  B:  <b>GP6</b>,
 
 ## Sound:
-GP15,
+<b>GP15</b>,
 
 ## SD-Kartenslot:
-SD_SPI1_SCK:  GP10,  SD_SPI1_MOSI: GP11,  SD_SPI1_MISO  GP12,   SD_SPI1_CS  GP 13,
+SD_SPI1_SCK:  <b>GP10</b>,  SD_SPI1_MOSI: <b>GP11</b>,  SD_SPI1_MISO  <b>GP12</b>,   SD_SPI1_CS  <b>GP13</b>,
 
