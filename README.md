@@ -18,4 +18,6 @@ UP:  <b>GP4</b>,  DOWN:  <b>GP5</b>,  LEFT:  <b>GP3</b>,  RIGHT:  <b>GP2</b>,  X
 ## SD-Kartenslot:
 SD_SPI1_SCK:  <b>GP10</b>,  SD_SPI1_MOSI: <b>GP11</b>,  SD_SPI1_MISO  <b>GP12</b>,   SD_SPI1_CS  <b>GP13</b>,
 
+Die Belegung des externen Anschlusses für die Nutzung von Sensoren gibt Pajenicko auf seiner Seite an.
+
 Damit können Sie das Picopad unabhängig von der mitgelieferten SDK in der Arduino-IDE oder CircuitPython bzw. MicroPython, je nach Ihrer Vorliebe programmieren.
