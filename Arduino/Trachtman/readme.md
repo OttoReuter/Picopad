@@ -2,9 +2,9 @@
 
 # Trachtman is back
 
-## Jump'n'Run Game für den PicoBoy_Color
+## Jump'n'Run Game für den Picopad
 
-'Trachtman is back' ist eine Variante eines bekannten Jump-'n'-Run Spiels, umgesetzt auf dem PicoBoy Color. Es wurde in C++ programmiert und läuft sowohl auf dem Mikrocontroller RP 2040 und erst recht auf dem RP 2350 sehr flüssig. 
+'Trachtman is back' ist eine Variante eines bekannten Jump-'n'-Run Spiels, umgesetzt auf dem PicoBoy Color. Es wurde in C++ programmiert und läuft sowohl auf dem Mikrocontroller RP 2040 und erst recht auf dem RP 2350 sehr flüssig. Auf dem Picopad wurde das Spiel für das LCD-Display mit 240x320 Pixeln angepasst.
 
 ## Zum Inhalt des Spiels:
 
