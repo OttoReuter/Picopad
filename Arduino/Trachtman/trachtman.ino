@@ -237,17 +237,16 @@ void animateMovement() {
 }
 
 void drawHUD() {
-  // Hintergrund für HUD löschen
-  tft.fillRect(80, 0, 150, 45, 0x05F7);
+  // Schrift mit Hintergrundfarbe, damit kein Flimmern
   // Punkte anzeigen
   tft.setCursor(80, 5);
-  tft.setTextColor(ST77XX_BLUE);
+  tft.setTextColor(ST77XX_BLUE, 0x05F7);
   tft.setTextSize(2);
   tft.print("Points: ");
   tft.print(points);
   // Leben anzeigen
   tft.setCursor(93, 25);
-  tft.setTextColor(ST77XX_BLUE);
+  tft.setTextColor(ST77XX_BLUE, 0x05F7);
   tft.print("Lives: ");
   tft.print(lives);
 }
