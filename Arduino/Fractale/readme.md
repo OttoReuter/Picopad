@@ -8,7 +8,7 @@ beeindruckendere Rechenleistung. Bei gleichem Quellcode ist er mehr als doppelt 
 
 1. Beim Einschalten wird die komplette Teilmenge dargestellt und nach Fertigstellung ein Rechteck für einen Zoom eingeblendet.
 
-2. Mit den Cursor-Tasten navigieren Sie zu einer beliebigen Stelle innerhalb des Displays und bestätigen mit der A-Taste.So legen Sie den Zoombereich fest. Darauf wird dieser Ausschnitt berechnet und dargestellt.
+2. Mit den Cursor-Tasten navigieren Sie zu einer beliebigen Stelle innerhalb des Displays und bestätigen mit der A-Taste. So legen Sie den Zoombereich fest. Darauf wird dieser Ausschnitt berechnet und dargestellt.
 
 3. (optional) Mit einem Klick auf 'X' werden die augenblicklichen Werte angezeigt. Danach wird bei A-Taste die Berechnung fortgeführt, wo das Recheck zuletzt stand bzw. bei B-Taste 4. ausgeführt.
 
