@@ -1,3 +1,4 @@
+![mandel_03_klein](https://github.com/user-attachments/assets/876ef331-cf94-403e-a7d4-96714ca99c4d)
 
 
 # Fractalbilder auf dem Picopad erzeugen
