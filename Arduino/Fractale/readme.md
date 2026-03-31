@@ -1,3 +1,5 @@
+![mandel_03](https://github.com/user-attachments/assets/d3848d83-cbc8-46ec-bb40-4916696a5baa)
+
 # Fractalbilder auf dem Picopad erzeugen
 
 Ich zeige, wie man mit dem Picopad in der Arduino-IDE die Mandelbrotmenge darstellt. Es handelt sich um die Darstellung
