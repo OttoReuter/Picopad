@@ -12,7 +12,7 @@
 
 #define NUM_KEYS 8
 // up, down, left, right, X, Y , A, B
-const uint8_t keys[NUM_KEYS] = {4, 5, 3, 2, 9, 8, 7, 6};
+const uint8_t keys[NUM_KEYS] = {4, 5, 3, 2, 7, 6, 9, 8};
 bool keyHandled[NUM_KEYS] = {false};
 
 Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
@@ -67,6 +67,8 @@ void update_score() {
     game_over();
   } 
   tft.fillRect(75,8,200,30,0x4000);
+  tft.fillRect(0, 30, 20, 190,0x4000);   // Bereich hinter Spielfeld
+  tft.fillRect(300, 30, 20, 190,0x4000); // =====  -- ==============
   tft.setTextSize(3);
   tft.setCursor(100,10);
   tft.setTextColor(ST77XX_YELLOW);
@@ -80,7 +82,7 @@ void update_score() {
 
 void calc_ball() {
   Serial.println(ball_dir_x);
-  tft.fillCircle(ball_x,ball_y,4,0x4000);
+  tft.fillCircle(ball_x,ball_y,4,0x0320);
   // Wand oben/unten
   if (ball_y <= 46 or ball_y >= height - 40) {
     ball_dir_y *= -1;
@@ -112,19 +114,19 @@ void calc_ball() {
 
 void set_player() {
   if (player_y >= 41 && up) {
-    tft.fillRect(player_x,player_y,5,40,0x4000);
+    tft.fillRect(player_x,player_y,5,40,0x0320);
     player_y = player_y - player_y_dif;
     tft.fillRect(player_x,player_y,5,40,ST77XX_WHITE);
   }
   if (player_y <= 175 && down) {
-    tft.fillRect(player_x,player_y,5,40,0x4000);
+    tft.fillRect(player_x,player_y,5,40,0x0320);
     player_y = player_y + player_y_dif;
     tft.fillRect(player_x,player_y,5,40,ST77XX_WHITE);
   }
 }
 
 void calc_pico() {
-  tft.fillRect(pico_x,pico_y,5,40,0x4000);
+  tft.fillRect(pico_x,pico_y,5,40,0x0320);
   if (pico_y + 20 < ball_y) {
     pico_y += 3;
   }
@@ -138,22 +140,22 @@ void calc_pico() {
 }
 
 void readInput() {
-  // Spiel starten A Button
+  // Spiel starten X Button
   if(!digitalRead(keys[6]) && !debounce) {
     play = true;debounce = true;lastPush = millis();
-    tft.fillRect(55,95,170,50,0x4000);
-    tft.fillRect(60,175,200,40,0x4000);
+    tft.fillRect(55,75,190,100,0x0320);
+    tft.fillCircle(ball_x,ball_y,4,ST77XX_WHITE);
   }
   // New Game B Button
-  if(!digitalRead(keys[7]) && !debounce && !play) {
+  if(!digitalRead(keys[5]) && !debounce && !play) {
     debounce = true;lastPush = millis();
     score1 = 0;score2 = 0;
     startGame();
   }
   // wenn play == true
   if (play) {
-    // Spiel unterbrechen 'X' oder 'Y'
-    if(!digitalRead(keys[4]) or !digitalRead(keys[5])) {
+    // Spiel unterbrechen 'Y'
+    if(!digitalRead(keys[7])) {
       play=false;
       tft.drawRect(19,39,282,180,ST77XX_WHITE);
     }
@@ -178,17 +180,22 @@ void readInput() {
 // Start Game
 void startGame() {
   tft.fillScreen(0x4000);
+  tft.fillRect(20,40,281,179,0x0320);
   tft.drawRect(19,39,282,180,ST77XX_WHITE);
   tft.setTextSize(3);
-  tft.setCursor(100,10);
+  tft.setCursor(80,10);
   tft.setTextColor(ST77XX_YELLOW);
   tft.print("PICO-PONG");
   tft.setTextSize(2);
-  tft.setCursor(65,180);
-  tft.print("Start: A  Button");
+  tft.setCursor(65,80);
+  tft.print("Start: X");
+  tft.setCursor(65,120);
+  tft.print("Pause: Y");
+  tft.setCursor(65,160);
+  tft.print("New  : B");
+
   tft.fillRect(player_x,player_y,5,40,ST77XX_WHITE);
   tft.fillRect(pico_x,pico_y,5,40,ST77XX_WHITE);
-  tft.fillCircle(ball_x,ball_y,4,ST77XX_WHITE);
 }
 
 void game_over() {
@@ -198,6 +205,11 @@ void game_over() {
   tft.setTextSize(3);
   tft.setCursor(80,100);
   tft.print("GAME OVER");
+  tft.setCursor(100,150);
+  tft.print(score1);
+  tft.setCursor(190,150);
+  tft.print(score2);
+  score1 = 0; score2 = 0;
 }
 
 // ===== Setup =====
@@ -206,9 +218,7 @@ void setup() {
   pinMode(TFT_RST, OUTPUT); digitalWrite(TFT_RST, LOW); delay(50); digitalWrite(TFT_RST,HIGH);
   tft.init(240,320); tft.setRotation(3);
   pinMode(TFT_BLK,OUTPUT); digitalWrite(TFT_BLK,HIGH);
-  //pinMode(14, OUTPUT);    // rote LED
-  //pinMode(13, OUTPUT);    // gelbe LED
-  //pinMode(12, OUTPUT);    // grüne LED
+  
   for(int i=0;i<NUM_KEYS;i++) pinMode(keys[i],INPUT_PULLUP);
   startGame();
 }
