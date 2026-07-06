@@ -131,20 +131,18 @@ Die Steuerung erfolgt vollständig über die Tasten des Picopad.
 | Taste   | Funktion                |
 | ------- | ----------------------- |
 | ↑ ↓ ← → | Cursor bewegen          |
-| A       | Zahl erhöhen            |
-| B       | Zahl verringern         |
-| X       | Feld löschen (0 setzen) |
-| Y       | Neues Sudoku erzeugen   |
-
-*(Falls deine Tastenbelegung abweicht, diese Tabelle entsprechend anpassen.)*
+| A       | Neues Sudoku erzeugen   |
+| B       | Abbrechen u. Menu       |
+| X       | z.Z. nicht belegt       |
+| Y       | Eingabe bestätigen (OK) |
 
 ---
 
 # Technische Merkmale
 
 * Arduino-IDE
-* Raspberry Pi Pico (RP2040)
-* Picopad
+* Picopad von Pajenicko
+* Raspberry Pi Pico (RP2040 oder RP2350) einsetzbar
 * Keine dynamische Speicherverwaltung
 * Keine externen Bibliotheken für Sudoku
 * Generator und Solver vollständig selbst implementiert
