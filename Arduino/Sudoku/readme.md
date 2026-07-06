@@ -161,9 +161,3 @@ Dadurch bleibt der Code:
 * wartbar
 * leicht testbar
 * einfach erweiterbar
-
----
-
-## Lizenz
-
-Dieses Projekt steht unter der im Repository angegebenen Lizenz.
