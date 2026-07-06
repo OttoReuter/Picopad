@@ -1,5 +1,7 @@
 # Sudoku für Picopad
 
+<img width="2074" height="1500" alt="sudoku_02" src="https://github.com/user-attachments/assets/312c267c-7647-4d90-969f-1f9d1a65d0d6" />
+
 Ein vollständig auf dem **Raspberry Pi Pico** laufendes Sudoku-Spiel für das **Picopad**, entwickelt mit der Arduino-IDE.
 
 Das Projekt wurde bewusst als **monolithischer Arduino-Sketch mit modularer Architektur** umgesetzt. Obwohl es sich für die Arduino-IDE um einen einzigen Sketch handelt, sind die einzelnen Aufgaben klar voneinander getrennt. Dadurch bleibt der Code übersichtlich, leicht wartbar und einfach erweiterbar.
