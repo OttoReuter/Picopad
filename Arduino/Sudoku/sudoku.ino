@@ -1,5 +1,3 @@
-#include <Adafruit_GFX.h>
-#include <Adafruit_ST7789.h>
 #include <SPI.h>
 #include "Display.h"
 #include "Generator.h"
@@ -16,8 +14,8 @@
 #define TFT_BLK  16
 
 #define NUM_KEYS 8
-// up, down, left, right, X, Y,  A, B
-const uint8_t keys[NUM_KEYS] = {4, 5, 3, 2, 9, 8, 7, 6};
+// up, down, left, right, Y, A, B, X
+const uint8_t keys[NUM_KEYS] = {4, 5, 3, 2, 8, 7, 6, 9};
 bool keyHandled[NUM_KEYS] = {false};
 
 Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
@@ -25,6 +23,7 @@ Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
 // ---------------- STATE ----------------
 bool debounce = false;
 bool mask_verified= false;
+bool isready = false;
 GameState state = MENU;
 unsigned long lastPress = 0;
 unsigned long startzeit = 0;
@@ -42,6 +41,8 @@ int y_pos[] = {4,30,55,80,106,131,156,182,207};
 int zahl;
 int zahl1;
 int zahl2;
+int points = 0;
+int failed = 0;
 // Ausgangsfeld, welches den Regeln entspricht
 int baseArray[81] = {1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,
                 2,3,4,5,6,7,8,9,1,5,6,7,8,9,1,2,3,4,8,9,1,2,3,4,5,6,7,
@@ -156,7 +157,7 @@ void loop() {
   }
 
   // Sudoku starten mit A-Button
-  if (!digitalRead(keys[6]) && !debounce) {
+  if (!digitalRead(keys[5]) && !debounce) {
     if (!mask_verified) {   // Spiel in der gewählten Schwierigkeit starten
       debounce = true; lastPress = millis();
       tft.fillScreen(0x4000);
@@ -176,22 +177,25 @@ void loop() {
   }
 
   // zurueck zum Menu mit B-Button
-  if (!digitalRead(keys[7]) && !debounce) {
+  if (!digitalRead(keys[6]) && !debounce) {
     // Abbruch und Rückkehr zum Menü
     state = MENU;
     mask_verified = false;
+    points = 0;
+    failed = 0;
+    isready = false;
     drawMenu();
     debounce = true; lastPress = millis();
   }
 
   // Taste OK bei Zahlenauswahl gedrueckt
-  if(!digitalRead(keys[5]) && !debounce) {
+  if(!digitalRead(keys[4]) && !debounce) {
     switch(state) {
         case SELECT_POSITION:
             if(array[j*9+i]==0) {
-                solveIndex = 1;
-                state = SELECT_NUMBER;
-                drawSideboard();
+              solveIndex = 1;
+              state = SELECT_NUMBER;
+              drawSideboard();
             }
             break;
         case SELECT_NUMBER:
