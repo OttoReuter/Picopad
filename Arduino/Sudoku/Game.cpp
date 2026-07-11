@@ -11,7 +11,35 @@ extern Adafruit_ST7789 tft;
 extern int array[81];
 extern int baseArray[81];
 extern GameState state;
+extern int points;
+extern int failed;
+extern bool isready;
 bool solved = true;
+
+// ========== Punkte und Ergebnis anzeigen ======
+void show_points() {
+    tft.setTextColor(ST77XX_WHITE);
+    tft.setCursor(240,65);
+    tft.print("points");
+    tft.setCursor(250,85);
+    if (points >= 0) {
+        tft.print(points);
+    } else {
+        tft.print("***");
+    }
+    tft.setCursor(240,110);
+    tft.print("failed");
+    tft.setCursor(250,135);
+    tft.print(failed);
+    if (isready) {
+        tft.setCursor(240,170);
+        tft.print("fertig");
+        tft.setCursor(245,195);
+        tft.print("press");
+        tft.setCursor(260, 220);
+        tft.print("B");
+    }   
+}
 
 // ==========================
 // Position auswählen
@@ -23,14 +51,16 @@ void select_position() {
     tft.drawRect(2+i*26, 2, 26, 234, ST77XX_YELLOW);
     tft.drawRect(2+i*26, 2+j*26, 26, 26, ST77XX_RED);
     if (array[j * 9 + i] == 0) {
-        tft.setCursor(250,20);
         tft.setTextColor(ST77XX_WHITE);
+        tft.setCursor(250,20);
         tft.print("OK");
+        show_points();
     }
     else
     {
         if (!solved) {
             tft.fillRect(240,5,70,30,0x4000);
+            show_points();
         }
     }
 }
@@ -40,36 +70,30 @@ void select_position() {
 // ==========================
 void select_number() {
     int zahl = solveIndex;
-
     tft.setCursor(2 + i * 26 + 8, 2 + j * 26 + 5);
     if (result[j * 9 + i] == zahl)     {
         tft.setTextColor(ST77XX_YELLOW);
         tft.print(zahl);
+        points += 15;
         array[j * 9 + i] = zahl;
         // prüfen ob fertig
-        //bool solved = true;
         for (int k = 0; k < 81; k++)  {
             if (array[k] == 0) {
                 solved = false;
+                isready = false;
                 break;
+            } else {
+                isready = true;
             }
-        }
-
-        if (solved) {
-            tft.setTextColor(ST77XX_WHITE);
-            tft.setCursor(240,20);
-            tft.print("fertig");
-            tft.setCursor(245,70);
-            tft.print("press");
-            tft.setCursor(270,105);
-            tft.print("B");
         }
     }
     else
     {
-        // falsche zahl rot anzeigen und wieder löschen
+        // falsche Zahl rot anzeigen und wieder löschen
         tft.setTextColor(ST77XX_RED);
         tft.print(zahl);
+        points -= 15;
+        failed += 1;        
         delay(1000);
         tft.setTextColor(0x0320);
         tft.setCursor(2+i*26+ 8, 2+j*26+ 5);
@@ -86,7 +110,7 @@ void start_sudoku() {
     tft.setTextColor(ST77XX_WHITE);
     tft.setCursor(50,60);
     tft.print("Sudoku wird gebaut");
-    tft.setCursor(70,120);
+    tft.setCursor(70,90);
     tft.print("Bitte warten");
     while (!ok) {
         memcpy(array, baseArray, sizeof(array));
@@ -102,7 +126,7 @@ void start_sudoku() {
 
     clear_screen();
     array_show();
-    // Werte anzeigen oder weglassen
+
     //display_values();
 
     i = 0;
