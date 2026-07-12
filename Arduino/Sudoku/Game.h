@@ -23,5 +23,6 @@ extern unsigned long gemessene_Zeit;
 void start_sudoku();
 void select_position();
 void select_number();
+voud show_points();
 
 #endif
