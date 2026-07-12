@@ -16,31 +16,6 @@ extern int failed;
 extern bool isready;
 bool solved = true;
 
-// ========== Punkte und Ergebnis anzeigen ======
-void show_points() {
-    tft.setTextColor(ST77XX_WHITE);
-    tft.setCursor(240,65);
-    tft.print("points");
-    tft.setCursor(250,85);
-    if (points >= 0) {
-        tft.print(points);
-    } else {
-        tft.print("***");
-    }
-    tft.setCursor(240,110);
-    tft.print("failed");
-    tft.setCursor(250,135);
-    tft.print(failed);
-    if (isready) {
-        tft.setCursor(240,170);
-        tft.print("fertig");
-        tft.setCursor(245,195);
-        tft.print("press");
-        tft.setCursor(260, 220);
-        tft.print("B");
-    }   
-}
-
 // ==========================
 // Position auswählen
 // ==========================
